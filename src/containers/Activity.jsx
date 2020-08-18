@@ -1,23 +1,35 @@
 import React, { Component } from 'react';
+import NamesContainer from '../components/NamesContainer';
 import logo from '../images/logo.svg';
 
 export default class Profile extends Component {
-  render() {
-    return (
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/containers/Profile.jsx</code> and save to reload.
-      </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Put your main activity here.
-      </a>
-      </header>
-    )
-  }
+    state = {
+      names: [
+       'Google classroom' ,
+       'Google docs' ,
+       'Flip grid' ,
+       'Google slides' ,
+        'Jupiter' , 
+      'Google slides'  ,
+       'Remind' 
+      ],
+      searchTerm: ' '
+    }
+    editSearchTerm = (e) => {
+      this.setState({searchTerm: e.target.value})
+    }
+    
+    dynamicSearch = () => {
+    return this.state.names.filter(name => name.toLowerCase().includes(this.state.searchTerm.toLowerCase()))
+    }
+
+     render(){
+      return (
+        <div style = {{textAlign: 'center', paddingTop: '30vh'}}>
+          <input type= 'text' value = {this.state.searchTerm} onChange = {this.editSearchTerm}/>
+          <br></br>
+          <h3>These are the important names:</h3>
+          <NamesContainer names = {this.dynamicSearch()}/>
+        
+      );
 }

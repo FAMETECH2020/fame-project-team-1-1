@@ -1,4 +1,3 @@
-
 import React, { Component } from 'react';
 import { Navbar, Nav } from 'react-bootstrap';
 
@@ -12,7 +11,7 @@ export default class Navpan extends Component {
         this.props.changePage("home");
     }
     toProfile() {
-        this.props.changePage("profile");
+        this.props.changePage("profile"); 
     }
     toSearch() {
         this.props.changePage("search");
@@ -23,10 +22,10 @@ export default class Navpan extends Component {
             <Navbar bg="dark" variant="dark" fixed="bottom" className="justify-content-center">
                 <Nav>
                     <Nav.Item>
-                        <Nav.Link onClick={this.toHome.bind(this)}>Home</Nav.Link>
+                        <Nav.Link onClick={this.toHome.bind(this)}>home</Nav.Link>
                     </Nav.Item>
                     <Nav.Item>
-                        <Nav.Link onClick={this.toSearch.bind(this)}>Activity</Nav.Link>
+                        <Nav.Link onClick={this.toSearch.bind(this)}>Search</Nav.Link>
                     </Nav.Item>
                     <Nav.Item>
                         <Nav.Link onClick={this.toProfile.bind(this)}>Prof</Nav.Link>
